@@ -1,8 +1,6 @@
 //! Based on 'Go concurrency is not parallelism'
 //! www.soroushjp.com/2015/02/07/go-concurrency-is-not-parallelism-real-world-lessons-with-monte-carlo-simulations/
 
-#![feature(test)]
-extern crate test;
 extern crate num_cpus;
 extern crate rand;
 
@@ -19,7 +17,7 @@ pub fn pi(samples: usize) -> f64
     let mut rng = rand::thread_rng();
     let range = Range::new(-1.0, 1.0);
 
-    for _ in (0..samples)
+    for _ in 0..samples
     {
         let x: f64 = range.ind_sample(&mut rng);
         let y: f64 = range.ind_sample(&mut rng);
